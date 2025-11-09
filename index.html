@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logica de Programacion 3</title>
+    <h1>Mi Tarea de Factorial</h1>
+    <p>Por favor, abre la consola (Click derecho > Inspeccionar > Consola) para interactuar con el programa.</p>
+
+    <script>
+        // Llamamos a la funcion principal para que el programa inicie
+        calcularFactorialConValidacion();
+
+        /**
+         * Funcion principal que solicita, validad, calcula
+         * y muestra el factorial de un numero.
+         */
+        function calcularFactorialConValidacion() {
+            let numero;
+            let entradaValida = false;
+
+        //1. BUCLE DE VALIDACION
+        while (!entradaValida){
+            const inputUsuario = prompt("Por favor, ingresa un numero entrero positivo...");
+
+            if (inputUsuario === null) {
+                console.log("Programa cancelado");
+                return;       
+            }
+
+            numero = Number(inputUsuario);
+
+            if (!isNaN(numero) && Math.floor(numero) === numero && numero >= 0) {
+                entradaValida = true;
+            } else {
+                alert("Dato invalido. Intenteo de nuevo.")
+            }
+        }
+        
+        //2. CALUCLO DEL FACTORIAL
+        let resultado = 1;
+        for (let i =1; i <= numero; i++) {
+            resultado = resultado * i;
+        }
+
+        //3. MOSTRAR EL RESULTADO
+        console.log(`El factorial de ${numero} es: ${resultado}. `);
+                
+    }
+    </script>
+</body>
+</html>
